@@ -28,7 +28,7 @@
       build: .
       command: bundle exec rails s -p 3000 -b '0.0.0.0'
       volumes:
-        - .:/myapp
+        - .:/project
       ports:
         - "3000:3000"
       depends_on:
