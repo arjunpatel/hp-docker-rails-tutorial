@@ -4,7 +4,9 @@
 [Docker for Mac](https://docs.docker.com/engine/installation/mac/)
 
 ### Add Docker to an existing project
-1. Setup an initial Docker file
+0. CD into rails project directory
+
+1. Create a ``Dockerfile``
   ```
   FROM ruby:2.2.0
   RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
@@ -16,7 +18,7 @@
   ADD . /project
   ```
 
-2. Create a docker-compose.yml file
+2. Create a ``docker-compose.yml`` file
   ```
   version: '2'
   services:
@@ -33,9 +35,10 @@
         - db
   ```
   
-3. Update config/database.yml
+3. Update ``config/database.yml``
   ```
   development: &default
+    database: myapp_development
     username: postgres
     password:
     host: db
